@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+
+  ng6-project:
+    container_name: ng6-project-container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ng6-project-image
+    volumes:
+      - '.:/usr/src/app'
+      #- '/usr/src/app/node_modules'
+    ports:
+      - '4200:4200'
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    #command: /usr/src/app/entrypoint.sh
+    #entrypoint: /usr/src/app/entrypoint.sh
+
